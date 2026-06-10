@@ -4,553 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog — DF4 Imóveis | Brasília</title>
+  <meta name="description" content="Conteúdo especializado sobre o mercado imobiliário de Brasília. Dicas, análises e guias para comprar, alugar e investir no DF." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy:    #0f1d2e;
-      --navy-mid:#162437;
-      --gold:    #b89a5e;
-      --gold-lt: #d4b882;
-      --offwhite:#f7f5f2;
-      --text:    #2c2c2c;
-      --muted:   #7a7a7a;
-      --border:  #e5e0d8;
+      --navy: #0f1d2e; --navy-mid: #162437;
+      --gold: #b89a5e; --gold-lt: #d4b882;
+      --offwhite: #f7f5f2; --text: #2c2c2c;
+      --muted: #7a7a7a; --border: #e5e0d8;
     }
+    body { font-family: 'Inter', sans-serif; background: var(--offwhite); color: var(--text); line-height: 1.6; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--offwhite);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* ── HEADER ── */
-    header {
-      background: var(--navy);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-    .logo img {
-      height: 38px;
-      object-fit: contain;
-    }
-    .logo-fallback {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-    .logo-fallback span:first-child {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: 0.04em;
-    }
-    .logo-fallback span:last-child {
-      font-size: 10px;
-      font-weight: 300;
-      color: var(--gold-lt);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    nav a {
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    header { background: var(--navy); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo img { height: 38px; object-fit: contain; }
+    .logo-text span:first-child { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 0.04em; display: block; }
+    .logo-text span:last-child { font-size: 10px; font-weight: 300; color: var(--gold-lt); letter-spacing: 0.18em; text-transform: uppercase; display: block; }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { font-size: 13px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
     nav a:hover, nav a.active { color: var(--gold-lt); }
-    .nav-cta {
-      background: var(--gold);
-      color: #fff !important;
-      padding: 9px 20px;
-      border-radius: 2px;
-      font-weight: 500 !important;
-      transition: background 0.2s !important;
-    }
+    .nav-cta { background: var(--gold); color: #fff !important; padding: 9px 20px; border-radius: 2px; font-weight: 500 !important; }
     .nav-cta:hover { background: var(--gold-lt) !important; color: var(--navy) !important; }
 
-    /* ── HERO BANNER ── */
-    .hero {
-      background: var(--navy-mid);
-      padding: 72px 32px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(184,154,94,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .hero-label {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 400;
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-    .hero p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.55);
-      max-width: 520px;
-      margin: 0 auto;
-      font-weight: 300;
-    }
-    /* gold underline on h1 */
-    .hero h1 em {
-      font-style: normal;
-      position: relative;
-    }
-    .hero h1 em::after {
-      content: '';
-      position: absolute;
-      bottom: 2px;
-      left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-    }
+    .hero { background: var(--navy-mid); padding: 72px 32px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(184,154,94,0.08) 0%, transparent 60%); pointer-events: none; }
+    .hero-label { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 400; color: #fff; line-height: 1.15; margin-bottom: 16px; }
+    .hero h1 em { font-style: normal; position: relative; }
+    .hero h1 em::after { content: ''; position: absolute; bottom: 2px; left: 0; right: 0; height: 2px; background: var(--gold); }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 520px; margin: 0 auto; font-weight: 300; }
 
-    /* ── CATEGORY BAR ── */
-    .categories {
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-    }
-    .categories-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-      display: flex;
-      align-items: center;
-      gap: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
+    .categories { background: #fff; border-bottom: 1px solid var(--border); }
+    .categories-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; overflow-x: auto; scrollbar-width: none; }
     .categories-inner::-webkit-scrollbar { display: none; }
-    .cat-btn {
-      flex-shrink: 0;
-      padding: 16px 22px;
-      font-size: 12.5px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      text-transform: uppercase;
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-    }
+    .cat-btn { flex-shrink: 0; padding: 16px 22px; font-size: 12.5px; font-weight: 500; letter-spacing: 0.05em; color: var(--muted); text-transform: uppercase; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
     .cat-btn:hover { color: var(--text); }
     .cat-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
 
-    /* ── MAIN GRID ── */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 64px 32px;
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 56px;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 64px 32px; display: grid; grid-template-columns: 1fr 340px; gap: 56px; }
 
-    /* ── FEATURED POST ── */
-    .featured {
-      border-radius: 4px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-      margin-bottom: 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .featured-img {
-      position: relative;
-      overflow: hidden;
-    }
-    .featured-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
+    .featured { border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.06); margin-bottom: 48px; display: grid; grid-template-columns: 1fr 1fr; }
+    .featured-img { position: relative; overflow: hidden; min-height: 320px; }
+    .featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
     .featured:hover .featured-img img { transform: scale(1.03); }
-    .featured-badge {
-      position: absolute;
-      top: 20px; left: 20px;
-      background: var(--gold);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 2px;
-    }
-    .featured-body {
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .post-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-    .post-cat {
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .post-date {
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .featured-body h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      font-weight: 500;
-      color: var(--navy);
-      line-height: 1.3;
-      margin-bottom: 14px;
-    }
-    .featured-body p {
-      font-size: 14.5px;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 28px;
-    }
-    .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12.5px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--navy);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-      width: fit-content;
-    }
+    .featured-badge { position: absolute; top: 20px; left: 20px; background: var(--gold); color: #fff; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; }
+    .featured-body { padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; }
+    .post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .post-cat { font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+    .post-date { font-size: 12px; color: var(--muted); }
+    .featured-body h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: var(--navy); line-height: 1.3; margin-bottom: 14px; }
+    .featured-body p { font-size: 14.5px; color: var(--muted); line-height: 1.75; margin-bottom: 28px; }
+    .read-more { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: color 0.2s; width: fit-content; }
     .read-more:hover { color: var(--gold); }
     .read-more svg { transition: transform 0.2s; }
     .read-more:hover svg { transform: translateX(4px); }
 
-    /* ── POST GRID ── */
-    .posts-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .post-card {
-      background: #fff;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-      transition: box-shadow 0.3s, transform 0.3s;
-      cursor: pointer;
-    }
-    .post-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-      transform: translateY(-3px);
-    }
-    .card-img {
-      height: 190px;
-      overflow: hidden;
-      position: relative;
-    }
-    .card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
+    .posts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .post-card { background: #fff; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.05); transition: box-shadow 0.3s, transform 0.3s; }
+    .post-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.10); transform: translateY(-3px); }
+    .card-img { height: 190px; overflow: hidden; position: relative; }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
     .post-card:hover .card-img img { transform: scale(1.05); }
-    .card-body {
-      padding: 22px 24px 26px;
-    }
-    .card-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--navy);
-      line-height: 1.35;
-      margin-bottom: 10px;
-    }
-    .card-body p {
-      font-size: 13.5px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
+    .card-body { padding: 22px 24px 26px; }
+    .card-body h3 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500; color: var(--navy); line-height: 1.35; margin-bottom: 10px; }
+    .card-body p { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-bottom: 18px; }
 
-    /* ── DIVIDER ── */
-    .section-divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin: 48px 0 32px;
-    }
-    .section-divider span {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      color: var(--navy);
-      white-space: nowrap;
-    }
-    .section-divider::before, .section-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    .section-divider { display: flex; align-items: center; gap: 16px; margin: 0 0 32px; }
+    .section-divider span { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--navy); white-space: nowrap; }
+    .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    /* ── SIDEBAR ── */
     .sidebar { display: flex; flex-direction: column; gap: 36px; }
-
-    .sidebar-block {
-      background: #fff;
-      border-radius: 4px;
-      padding: 28px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-    }
-    .sidebar-title {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    /* CTA block */
-    .cta-block {
-      background: var(--navy);
-      color: #fff;
-      text-align: center;
-      padding: 36px 28px;
-    }
-    .cta-block h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 400;
-      margin-bottom: 10px;
-    }
-    .cta-block p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 22px;
-      line-height: 1.65;
-    }
-    .cta-btn {
-      display: block;
-      background: var(--gold);
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 0;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
+    .sidebar-block { background: #fff; border-radius: 4px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+    .sidebar-title { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .cta-block { background: var(--navy); color: #fff; text-align: center; padding: 36px 28px; }
+    .cta-block h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; }
+    .cta-block p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 22px; line-height: 1.65; }
+    .cta-btn { display: block; background: var(--gold); color: #fff; text-decoration: none; padding: 12px 0; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; }
     .cta-btn:hover { background: var(--gold-lt); }
 
-    /* Recent posts list */
     .recent-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-    .recent-item { display: flex; gap: 14px; align-items: flex-start; }
-    .recent-thumb {
-      width: 64px;
-      height: 52px;
-      border-radius: 2px;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .recent-thumb img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .recent-info h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 13.5px;
-      color: var(--navy);
-      line-height: 1.35;
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-    .recent-info span {
-      font-size: 11.5px;
-      color: var(--muted);
-    }
+    .recent-item { display: flex; gap: 14px; align-items: flex-start; text-decoration: none; }
+    .recent-thumb { width: 64px; height: 52px; border-radius: 2px; overflow: hidden; flex-shrink: 0; }
+    .recent-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .recent-info h4 { font-family: 'Playfair Display', serif; font-size: 13.5px; color: var(--navy); line-height: 1.35; margin-bottom: 4px; font-weight: 500; }
+    .recent-info span { font-size: 11.5px; color: var(--muted); }
 
-    /* Tags */
     .tags-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag {
-      font-size: 11.5px;
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      color: var(--muted);
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-    }
+    .tag { font-size: 11.5px; padding: 6px 14px; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
     .tag:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* Newsletter */
     .newsletter-form { display: flex; flex-direction: column; gap: 10px; }
-    .newsletter-form input {
-      padding: 11px 14px;
-      font-size: 13px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      outline: none;
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
+    .newsletter-form input { padding: 11px 14px; font-size: 13px; border: 1px solid var(--border); border-radius: 2px; outline: none; font-family: inherit; transition: border-color 0.2s; }
     .newsletter-form input:focus { border-color: var(--gold); }
-    .newsletter-form button {
-      background: var(--gold);
-      color: #fff;
-      border: none;
-      padding: 11px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background 0.2s;
-      font-family: inherit;
-    }
+    .newsletter-form button { background: var(--gold); color: #fff; border: none; padding: 11px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; font-family: inherit; }
     .newsletter-form button:hover { background: var(--navy); }
 
-    /* ── PAGINATION ── */
-    .pagination {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 52px;
-    }
-    .pg-btn {
-      width: 38px; height: 38px;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid var(--border);
-      background: #fff;
-      font-size: 13px;
-      color: var(--muted);
-      cursor: pointer;
-      border-radius: 2px;
-      transition: all 0.2s;
-    }
-    .pg-btn:hover, .pg-btn.active {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: #fff;
-    }
-    .pg-btn.active { background: var(--gold); border-color: var(--gold); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.6);
-      padding: 56px 32px 28px;
-      margin-top: 0;
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-    .footer-brand p {
-      font-size: 13.5px;
-      line-height: 1.8;
-      margin-top: 16px;
-    }
-    .footer-brand .logo-fallback span:first-child { font-size: 22px; }
-    .footer-col h4 {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
-    }
-    .footer-col a {
-      display: block;
-      font-size: 13.5px;
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      margin-bottom: 10px;
-      transition: color 0.2s;
-    }
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 56px 32px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .footer-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
     .footer-col a:hover { color: var(--gold-lt); }
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 0 auto;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-    }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
     .creci { color: var(--gold); font-weight: 500; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .container { grid-template-columns: 1fr; padding: 40px 20px; }
       .featured { grid-template-columns: 1fr; }
-      .featured-img { height: 240px; }
+      .featured-img { min-height: 240px; }
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
       nav { display: none; }
     }
@@ -563,16 +125,13 @@
 </head>
 <body>
 
-<!-- ══════ HEADER ══════ -->
 <header>
   <div class="header-inner">
     <a href="https://df4imoveis.com.br" class="logo">
-      <img src="https://cdn2.uso.com.br/sites/logos/37845_topofixo.png"
-           alt="DF4 Imóveis"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-      <div class="logo-fallback" style="display:none;">
-        <span>DF4 Imóveis</span>
-        <span>Brasília · DF</span>
+      <img src="https://cdn2.uso.com.br/sites/logos/37845_topofixo.png" alt="DF4 Imóveis"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="logo-text" style="display:none;">
+        <span>DF4 Imóveis</span><span>Brasília · DF</span>
       </div>
     </a>
     <nav>
@@ -585,14 +144,12 @@
   </div>
 </header>
 
-<!-- ══════ HERO ══════ -->
 <section class="hero">
   <div class="hero-label">Conteúdo & Mercado</div>
   <h1>Inteligência para suas<br><em>decisões imobiliárias</em></h1>
   <p>Análises do mercado de Brasília, dicas para compradores e conteúdo que transforma conhecimento em patrimônio.</p>
 </section>
 
-<!-- ══════ CATEGORIES ══════ -->
 <div class="categories">
   <div class="categories-inner">
     <button class="cat-btn active">Todos</button>
@@ -601,75 +158,48 @@
     <button class="cat-btn">Dicas</button>
     <button class="cat-btn">Águas Claras</button>
     <button class="cat-btn">Financiamento</button>
-    <button class="cat-btn">Lifestyle</button>
   </div>
 </div>
 
-<!-- ══════ MAIN CONTENT ══════ -->
 <div class="container">
-
-  <!-- POSTS AREA -->
   <main>
 
-    <!-- FEATURED -->
+    <!-- DESTAQUE -->
     <article class="featured">
       <div class="featured-img">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
-             alt="Mercado imobiliário Brasília 2025" />
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Mercado imobiliário Brasília 2026" />
         <span class="featured-badge">Destaque</span>
       </div>
       <div class="featured-body">
         <div class="post-meta">
           <span class="post-cat">Mercado</span>
-          <span class="post-date">28 Mai 2026</span>
+          <span class="post-date">10 Jun 2026</span>
         </div>
-        <h2>Mercado imobiliário em Brasília: o que esperar no segundo semestre de 2026</h2>
-        <p>Com a queda gradual da Selic e a crescente demanda em Águas Claras e Vicente Pires, especialistas apontam valorização de até 12% nos imóveis residenciais do DF ao longo dos próximos meses.</p>
-        <a href="#" class="read-more">
+        <h2>Mercado imobiliário de Brasília em 2026: onde estão as maiores oportunidades</h2>
+        <p>Com a Selic em queda e demanda aquecida em regiões como Águas Claras, Vicente Pires e Noroeste, o DF vive um dos momentos mais favoráveis para compra e investimento dos últimos anos.</p>
+        <a href="artigo-mercado-brasilia-2026.html" class="read-more">
           Ler artigo completo
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- SECTION TITLE -->
-    <div class="section-divider">
-      <span>Últimas Publicações</span>
-    </div>
+    <div class="section-divider"><span>Mais Artigos</span></div>
 
-    <!-- GRID -->
     <div class="posts-grid">
 
       <article class="post-card">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Financiamento imobiliário" />
-        </div>
-        <div class="card-body">
-          <div class="post-meta">
-            <span class="post-cat">Financiamento</span>
-            <span class="post-date">20 Mai 2026</span>
-          </div>
-          <h3>Como financiar seu imóvel em 2026: guia completo para comprar com segurança</h3>
-          <p>Taxas, prazos, simulação e os erros mais comuns de quem financia um imóvel pela primeira vez.</p>
-          <a href="#" class="read-more">
-            Continuar lendo
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Águas Claras Brasília" />
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Águas Claras" />
         </div>
         <div class="card-body">
           <div class="post-meta">
             <span class="post-cat">Águas Claras</span>
-            <span class="post-date">14 Mai 2026</span>
+            <span class="post-date">5 Jun 2026</span>
           </div>
-          <h3>Por que Águas Claras continua sendo o bairro mais procurado do DF</h3>
-          <p>Infraestrutura completa, metrô na porta e valorização constante: entenda o fenômeno que atrai compradores e investidores.</p>
-          <a href="#" class="read-more">
+          <h3>Águas Claras: por que o bairro segue sendo o mais procurado do DF</h3>
+          <p>Metrô na porta, infraestrutura completa e valorização constante. Entenda o que torna Águas Claras única no mercado imobiliário de Brasília.</p>
+          <a href="artigo-aguas-claras.html" class="read-more">
             Continuar lendo
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -678,70 +208,16 @@
 
       <article class="post-card">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&q=80" alt="Dicas para locação" />
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Financiamento imobiliário DF" />
         </div>
         <div class="card-body">
           <div class="post-meta">
-            <span class="post-cat">Dicas</span>
-            <span class="post-date">7 Mai 2026</span>
+            <span class="post-cat">Financiamento</span>
+            <span class="post-date">1 Jun 2026</span>
           </div>
-          <h3>Checklist: tudo o que verificar antes de assinar um contrato de aluguel</h3>
-          <p>Vistoria, garantias, índices de reajuste e cláusulas que muitos inquilinos ignoram — e se arrependem depois.</p>
-          <a href="#" class="read-more">
-            Continuar lendo
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Investimento imobiliário" />
-        </div>
-        <div class="card-body">
-          <div class="post-meta">
-            <span class="post-cat">Investimento</span>
-            <span class="post-date">29 Abr 2026</span>
-          </div>
-          <h3>Comprar para alugar ainda vale a pena? Simulamos 4 cenários reais em Brasília</h3>
-          <p>Rentabilidade, liquidez e os bairros com melhor retorno para quem quer que o imóvel pague a si mesmo.</p>
-          <a href="#" class="read-more">
-            Continuar lendo
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Decoração apartamento" />
-        </div>
-        <div class="card-body">
-          <div class="post-meta">
-            <span class="post-cat">Lifestyle</span>
-            <span class="post-date">18 Abr 2026</span>
-          </div>
-          <h3>5 tendências de decoração que valorizam o seu apartamento na hora da venda</h3>
-          <p>Do home staging ao minimalismo funcional: o que compradores em Brasília estão procurando em 2026.</p>
-          <a href="#" class="read-more">
-            Continuar lendo
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&q=80" alt="Vicente Pires casas" />
-        </div>
-        <div class="card-body">
-          <div class="post-meta">
-            <span class="post-cat">Mercado</span>
-            <span class="post-date">10 Abr 2026</span>
-          </div>
-          <h3>Vicente Pires: a aposta certa para quem busca casas com terreno perto de Brasília</h3>
-          <p>O setor que combina qualidade de vida, acesso rápido ao Plano Piloto e preços ainda competitivos frente às demais regiões.</p>
-          <a href="#" class="read-more">
+          <h3>Como financiar seu imóvel no DF em 2026: passo a passo e o que os bancos não contam</h3>
+          <p>Taxas, documentação, simulação e os erros mais comuns de quem financia pela primeira vez. Tudo que você precisa saber antes de assinar.</p>
+          <a href="artigo-financiamento-df-2026.html" class="read-more">
             Continuar lendo
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -749,70 +225,43 @@
       </article>
 
     </div>
-
-    <!-- PAGINATION -->
-    <div class="pagination">
-      <button class="pg-btn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <button class="pg-btn active">1</button>
-      <button class="pg-btn">2</button>
-      <button class="pg-btn">3</button>
-      <button class="pg-btn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div>
-
   </main>
 
-  <!-- ══════ SIDEBAR ══════ -->
   <aside class="sidebar">
 
-    <!-- CTA -->
     <div class="sidebar-block cta-block">
       <h3>Encontre o imóvel ideal</h3>
       <p>Nossa equipe em Brasília está pronta para te orientar em cada etapa da compra ou locação.</p>
       <a href="https://api.whatsapp.com/send?phone=5561991958052" class="cta-btn">Falar com um corretor</a>
     </div>
 
-    <!-- MOST READ -->
     <div class="sidebar-block">
-      <div class="sidebar-title">Mais Lidos</div>
+      <div class="sidebar-title">Artigos Recentes</div>
       <ul class="recent-list">
-        <li class="recent-item">
-          <div class="recent-thumb">
-            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&q=70" alt="" />
-          </div>
-          <div class="recent-info">
-            <h4>Como financiar seu imóvel em 2026: guia completo</h4>
-            <span>20 Mai 2026</span>
-          </div>
+        <li>
+          <a href="artigo-mercado-brasilia-2026.html" class="recent-item">
+            <div class="recent-thumb"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&q=70" alt="" /></div>
+            <div class="recent-info"><h4>Mercado imobiliário de Brasília em 2026</h4><span>10 Jun 2026</span></div>
+          </a>
         </li>
-        <li class="recent-item">
-          <div class="recent-thumb">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200&q=70" alt="" />
-          </div>
-          <div class="recent-info">
-            <h4>Por que Águas Claras é o bairro mais procurado do DF</h4>
-            <span>14 Mai 2026</span>
-          </div>
+        <li>
+          <a href="artigo-aguas-claras.html" class="recent-item">
+            <div class="recent-thumb"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200&q=70" alt="" /></div>
+            <div class="recent-info"><h4>Por que Águas Claras é o bairro mais procurado</h4><span>5 Jun 2026</span></div>
+          </a>
         </li>
-        <li class="recent-item">
-          <div class="recent-thumb">
-            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&q=70" alt="" />
-          </div>
-          <div class="recent-info">
-            <h4>Comprar para alugar ainda vale a pena? 4 cenários reais</h4>
-            <span>29 Abr 2026</span>
-          </div>
+        <li>
+          <a href="artigo-financiamento-df-2026.html" class="recent-item">
+            <div class="recent-thumb"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&q=70" alt="" /></div>
+            <div class="recent-info"><h4>Como financiar seu imóvel no DF em 2026</h4><span>1 Jun 2026</span></div>
+          </a>
         </li>
       </ul>
     </div>
 
-    <!-- NEWSLETTER -->
     <div class="sidebar-block">
       <div class="sidebar-title">Receba em primeira mão</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.65;">Análises do mercado, novos imóveis e dicas exclusivas — direto no seu e-mail, sem spam.</p>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.65;">Análises do mercado, novos imóveis e dicas exclusivas — direto no seu e-mail.</p>
       <form class="newsletter-form" onsubmit="return false;">
         <input type="text" placeholder="Seu nome" />
         <input type="email" placeholder="Seu melhor e-mail" />
@@ -820,7 +269,6 @@
       </form>
     </div>
 
-    <!-- TAGS -->
     <div class="sidebar-block">
       <div class="sidebar-title">Tópicos</div>
       <div class="tags-cloud">
@@ -828,48 +276,41 @@
         <span class="tag">Águas Claras</span>
         <span class="tag">Vicente Pires</span>
         <span class="tag">Asa Sul</span>
-        <span class="tag">Apartamento</span>
-        <span class="tag">Casa</span>
+        <span class="tag">Noroeste</span>
         <span class="tag">Financiamento</span>
         <span class="tag">Investimento</span>
         <span class="tag">Aluguel</span>
-        <span class="tag">Decoração</span>
         <span class="tag">Mercado 2026</span>
       </div>
     </div>
 
   </aside>
-
 </div>
 
-<!-- ══════ FOOTER ══════ -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="logo-fallback" style="display:flex;">
-        <span style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#fff;letter-spacing:0.04em;">DF4 Imóveis</span>
-        <span style="font-size:10px;font-weight:300;color:var(--gold-lt);letter-spacing:0.18em;text-transform:uppercase;margin-top:2px;">Brasília · DF</span>
+    <div class="footer-col">
+      <div style="margin-bottom:16px;">
+        <span style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#fff;letter-spacing:0.04em;display:block;">DF4 Imóveis</span>
+        <span style="font-size:10px;font-weight:300;color:var(--gold-lt);letter-spacing:0.18em;text-transform:uppercase;">Brasília · DF</span>
       </div>
-      <p>Seu parceiro de confiança no mercado imobiliário de Brasília há mais de 6 anos. Da busca à assinatura, estamos com você em cada etapa.</p>
+      <p style="font-size:13.5px;line-height:1.8;">Seu parceiro de confiança no mercado imobiliário de Brasília há mais de 6 anos.</p>
     </div>
     <div class="footer-col">
       <h4>Imóveis</h4>
       <a href="https://df4imoveis.com.br/comprar">Comprar</a>
       <a href="https://df4imoveis.com.br/alugar">Alugar</a>
-      <a href="https://df4imoveis.com.br/imoveis">Busca Avançada</a>
-      <a href="https://df4imoveis.com.br/encomende-seu-imovel">Encomende seu Imóvel</a>
+      <a href="https://df4imoveis.com.br/encomende-seu-imovel">Encomendar</a>
     </div>
     <div class="footer-col">
       <h4>Empresa</h4>
       <a href="https://df4imoveis.com.br/empresa">Sobre Nós</a>
       <a href="https://df4imoveis.com.br/servicos">Serviços</a>
       <a href="https://df4imoveis.com.br/trabalhe-conosco">Trabalhe Conosco</a>
-      <a href="#">Blog</a>
     </div>
     <div class="footer-col">
       <h4>Contato</h4>
       <a href="https://api.whatsapp.com/send?phone=5561991958052">(61) 99195-8052</a>
-      <a href="https://df4imoveis.com.br/contato">Fale Conosco</a>
       <a href="https://instagram.com/df4imoveis">@df4imoveis</a>
       <a href="https://df4imoveis.com.br/financiamento">Simule Financiamento</a>
     </div>
@@ -877,23 +318,14 @@
   <div class="footer-bottom">
     <span>© 2026 DF4 Imóveis. Todos os direitos reservados.</span>
     <span class="creci">CRECI 25.347</span>
-    <a href="https://df4imoveis.com.br/politica-de-privacidade" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:12px;">Política de Privacidade</a>
+    <a href="https://df4imoveis.com.br/politica-de-privacidade" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:12px;">Privacidade</a>
   </div>
 </footer>
 
 <script>
-  // Category filter tabs
   document.querySelectorAll('.cat-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-  // Pagination
-  document.querySelectorAll('.pg-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (btn.querySelector('svg')) return;
-      document.querySelectorAll('.pg-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     });
   });

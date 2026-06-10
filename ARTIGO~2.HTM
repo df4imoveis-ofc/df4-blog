@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Águas Claras: Por que o bairro mais procurado do DF — DF4 Imóveis</title>
+  <meta name="description" content="Metrô na porta, infraestrutura completa e valorização constante. Entenda por que Águas Claras domina o mercado imobiliário de Brasília." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0f1d2e; --navy-mid:#162437; --gold:#b89a5e; --gold-lt:#d4b882; --offwhite:#f7f5f2; --text:#2c2c2c; --muted:#7a7a7a; --border:#e5e0d8; }
+    body { font-family: 'Inter', sans-serif; background: var(--offwhite); color: var(--text); line-height: 1.6; }
+
+    header { background: var(--navy); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo img { height: 38px; object-fit: contain; }
+    .logo-text span:first-child { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 0.04em; display: block; }
+    .logo-text span:last-child { font-size: 10px; font-weight: 300; color: var(--gold-lt); letter-spacing: 0.18em; text-transform: uppercase; display: block; }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { font-size: 13px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--gold-lt); }
+    .nav-cta { background: var(--gold); color: #fff !important; padding: 9px 20px; border-radius: 2px; font-weight: 500 !important; }
+
+    .article-hero { position: relative; height: 480px; overflow: hidden; }
+    .article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .article-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,29,46,0.1) 0%, rgba(15,29,46,0.75) 100%); }
+    .hero-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 48px; z-index: 1; max-width: 800px; }
+    .article-cat { display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-lt); background: rgba(184,154,94,0.15); border: 1px solid rgba(184,154,94,0.4); padding: 4px 14px; border-radius: 2px; margin-bottom: 16px; }
+    .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 500; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .article-meta span { font-size: 13px; color: rgba(255,255,255,0.65); }
+    .article-meta .dot { width: 3px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 50%; }
+
+    .article-layout { max-width: 1200px; margin: 0 auto; padding: 64px 32px; display: grid; grid-template-columns: 1fr 320px; gap: 64px; }
+    .article-body { max-width: 720px; }
+    .lead { font-size: 18px; font-weight: 300; color: var(--text); line-height: 1.8; margin-bottom: 36px; border-left: 3px solid var(--gold); padding-left: 24px; }
+    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: var(--navy); margin: 40px 0 16px; line-height: 1.3; }
+    .article-body h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; color: var(--navy); margin: 28px 0 12px; }
+    .article-body p { font-size: 16px; color: var(--text); line-height: 1.9; margin-bottom: 20px; }
+    .article-body ul { margin: 16px 0 20px 20px; }
+    .article-body li { font-size: 16px; color: var(--text); line-height: 1.8; margin-bottom: 8px; }
+    .article-body li::marker { color: var(--gold); }
+
+    .highlight-box { background: var(--navy); color: #fff; padding: 28px 32px; border-radius: 4px; margin: 36px 0; }
+    .highlight-box p { font-size: 17px; font-style: italic; line-height: 1.75; color: rgba(255,255,255,0.9); margin: 0; }
+    .highlight-box cite { display: block; font-size: 12px; font-style: normal; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 12px; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0; }
+    .feature-item { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 20px 22px; }
+    .feature-item .icon { font-size: 22px; margin-bottom: 10px; display: block; }
+    .feature-item h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .feature-item p { font-size: 13px; color: var(--muted); line-height: 1.65; margin: 0; }
+    .feature-icon { width: 32px; height: 32px; background: rgba(184,154,94,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+    .feature-icon svg { stroke: var(--gold); }
+
+    .article-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--navy); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; }
+    .back-link:hover { color: var(--gold); }
+    .share-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 32px; position: sticky; top: 100px; align-self: start; }
+    .sidebar-block { background: #fff; border-radius: 4px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+    .sidebar-title { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .cta-block { background: var(--navy); color: #fff; text-align: center; padding: 32px 24px; border-radius: 4px; }
+    .cta-block h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 400; margin-bottom: 10px; }
+    .cta-block p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; line-height: 1.65; }
+    .cta-btn { display: block; background: var(--gold); color: #fff; text-decoration: none; padding: 12px 0; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; }
+    .cta-btn:hover { background: var(--gold-lt); }
+
+    .related-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .related-item a { display: flex; gap: 14px; text-decoration: none; }
+    .related-thumb { width: 64px; height: 52px; border-radius: 2px; overflow: hidden; flex-shrink: 0; }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-info h4 { font-size: 13px; color: var(--navy); line-height: 1.35; margin-bottom: 4px; font-weight: 500; }
+    .related-info span { font-size: 11.5px; color: var(--muted); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 40px 32px 24px; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 12px; flex-wrap: wrap; gap: 12px; }
+    .creci { color: var(--gold); font-weight: 500; }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; padding: 40px 20px; }
+      .sidebar { position: static; }
+      .feature-grid { grid-template-columns: 1fr; }
+      nav { display: none; }
+    }
+    @media (max-width: 600px) {
+      .article-hero { height: 320px; }
+      .hero-content { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="https://df4imoveis.com.br" class="logo">
+      <img src="https://cdn2.uso.com.br/sites/logos/37845_topofixo.png" alt="DF4 Imóveis"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="logo-text" style="display:none;"><span>DF4 Imóveis</span><span>Brasília · DF</span></div>
+    </a>
+    <nav>
+      <a href="https://df4imoveis.com.br/imoveis">Imóveis</a>
+      <a href="https://df4imoveis.com.br/servicos">Serviços</a>
+      <a href="https://df4imoveis.com.br/empresa">Sobre Nós</a>
+      <a href="index.html">Blog</a>
+      <a href="https://api.whatsapp.com/send?phone=5561991958052" class="nav-cta">Fale Conosco</a>
+    </nav>
+  </div>
+</header>
+
+<div class="article-hero">
+  <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1400&q=85" alt="Águas Claras Brasília" />
+  <div class="hero-content">
+    <span class="article-cat">Águas Claras</span>
+    <h1>Águas Claras: por que o bairro segue sendo o mais procurado do DF</h1>
+    <div class="article-meta">
+      <span>DF4 Imóveis</span>
+      <span class="dot"></span>
+      <span>5 de junho de 2026</span>
+      <span class="dot"></span>
+      <span>7 min de leitura</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+
+    <p class="lead">Águas Claras não é apenas o bairro mais populoso do Distrito Federal — é também o mais dinâmico, o mais líquido e, para muitos compradores, o de melhor custo-benefício. Entender o que sustenta essa posição é essencial para quem pretende comprar, alugar ou investir no DF.</p>
+
+    <h2>O que faz Águas Claras diferente</h2>
+    <p>Criado no final dos anos 1990 às margens da linha sul do metrô de Brasília, Águas Claras foi planejado para ser um bairro urbano completo e autossuficiente. Três décadas depois, o resultado é uma região com infraestrutura densa, enorme variedade de serviços e uma população jovem e ativa que gera demanda constante por imóveis.</p>
+    <p>Ao contrário de outras regiões do DF — onde o carro é obrigatório — Águas Claras permite uma rotina sem dependência de transporte individual. Essa característica atrai cada vez mais um perfil de comprador que valoriza qualidade de vida, mobilidade e conveniência.</p>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <h4>Metrô integrado</h4>
+        <p>Duas estações de metrô dentro do bairro — acesso direto ao Plano Piloto em menos de 20 minutos.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        </div>
+        <h4>Comércio completo</h4>
+        <p>Shoppings, supermercados, farmácias, restaurantes e serviços concentrados nas avenidas principais.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <h4>Educação de qualidade</h4>
+        <p>Escolas públicas e privadas de destaque, faculdades e centros de ensino técnico dentro do bairro.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h4>Valorização constante</h4>
+        <p>+11% de valorização média nos últimos 12 meses, com demanda acima da oferta em todos os segmentos.</p>
+      </div>
+    </div>
+
+    <h2>O mercado de aluguel em Águas Claras</h2>
+    <p>Para investidores, Águas Claras oferece uma das melhores relações entre preço de compra e renda de aluguel do DF. A taxa de vacância é historicamente baixa — imóveis bem localizados raramente ficam desocupados por mais de 15 dias.</p>
+    <p>Apartamentos de 1 quarto — especialmente entre 30 m² e 45 m² — têm apresentado retorno bruto de locação entre 0,55% e 0,70% ao mês sobre o valor do imóvel. Para um apartamento adquirido por R$ 380 mil, isso representa entre R$ 2.090 e R$ 2.660 mensais de renda.</p>
+
+    <div class="highlight-box">
+      <p>"Águas Claras é o único bairro do DF onde você encontra liquidez tanto para compra quanto para locação, em qualquer faixa de preço. Isso é raro no mercado nacional."</p>
+      <cite>— Equipe de análise, DF4 Imóveis</cite>
+    </div>
+
+    <h2>Norte ou Sul: qual parte escolher?</h2>
+    <p>Águas Claras é dividida entre as regiões Norte e Sul, cada uma com perfil distinto:</p>
+    <ul>
+      <li><strong>Águas Claras Norte</strong> tem as avenidas principais, maior densidade comercial e os apartamentos com maior demanda de aluguel. Ideal para investidores focados em renda.</li>
+      <li><strong>Águas Claras Sul</strong> (também chamado Areal) tem perfil mais residencial, condomínios mais novos e preços ligeiramente superiores. Preferida por quem compra para morar.</li>
+    </ul>
+    <p>A escolha entre as duas depende do perfil do comprador. Para moradia com mais tranquilidade e condomínios com infraestrutura completa, o Sul tende a ser a preferência. Para renda e liquidez máxima, o Norte entrega os melhores números.</p>
+
+    <h2>Para quem Águas Claras é a escolha certa</h2>
+    <p>Águas Claras atende bem a um espectro amplo de compradores: jovens casais adquirindo o primeiro imóvel, famílias que buscam comodidade, investidores de aluguel de longo prazo e até compradores internacionais que precisam de um endereço acessível e valorizado em Brasília.</p>
+    <p>O bairro não é para quem busca exclusividade máxima — para isso, o Noroeste e a Asa Sul têm espaço. Mas é, sem dúvida, a escolha mais racional para a grande maioria dos perfis de comprador no DF hoje.</p>
+
+    <div class="article-footer">
+      <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Voltar ao Blog
+      </a>
+      <span class="share-label">DF4 Imóveis · CRECI 25.347</span>
+    </div>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="cta-block">
+      <h3>Imóveis em Águas Claras</h3>
+      <p>Temos opções selecionadas de apartamentos e salas comerciais na região.</p>
+      <a href="https://df4imoveis.com.br/comprar/df/brasilia/norte-aguas-claras/apartamento" class="cta-btn">Ver imóveis disponíveis</a>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Leia também</div>
+      <ul class="related-list">
+        <li class="related-item">
+          <a href="artigo-mercado-brasilia-2026.html">
+            <div class="related-thumb"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&q=70" alt="" /></div>
+            <div class="related-info"><h4>Mercado imobiliário de Brasília em 2026</h4><span>10 Jun 2026</span></div>
+          </a>
+        </li>
+        <li class="related-item">
+          <a href="artigo-financiamento-df-2026.html">
+            <div class="related-thumb"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&q=70" alt="" /></div>
+            <div class="related-info"><h4>Como financiar seu imóvel no DF em 2026</h4><span>1 Jun 2026</span></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <span>© 2026 DF4 Imóveis. Todos os direitos reservados.</span>
+    <span class="creci">CRECI 25.347</span>
+    <a href="index.html" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:12px;">← Voltar ao Blog</a>
+  </div>
+</footer>
+</body>
+</html>

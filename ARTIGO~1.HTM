@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercado Imobiliário de Brasília em 2026 — DF4 Imóveis</title>
+  <meta name="description" content="Com a Selic em queda e demanda aquecida em Águas Claras, Vicente Pires e Noroeste, o DF vive um dos momentos mais favoráveis para compra e investimento." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0f1d2e; --navy-mid:#162437; --gold:#b89a5e; --gold-lt:#d4b882; --offwhite:#f7f5f2; --text:#2c2c2c; --muted:#7a7a7a; --border:#e5e0d8; }
+    body { font-family: 'Inter', sans-serif; background: var(--offwhite); color: var(--text); line-height: 1.6; }
+
+    header { background: var(--navy); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo img { height: 38px; object-fit: contain; }
+    .logo-text span:first-child { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 0.04em; display: block; }
+    .logo-text span:last-child { font-size: 10px; font-weight: 300; color: var(--gold-lt); letter-spacing: 0.18em; text-transform: uppercase; display: block; }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { font-size: 13px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--gold-lt); }
+    .nav-cta { background: var(--gold); color: #fff !important; padding: 9px 20px; border-radius: 2px; font-weight: 500 !important; }
+
+    .article-hero { position: relative; height: 480px; overflow: hidden; }
+    .article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .article-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,29,46,0.1) 0%, rgba(15,29,46,0.75) 100%); }
+    .hero-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 48px; z-index: 1; max-width: 800px; }
+    .article-cat { display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-lt); background: rgba(184,154,94,0.15); border: 1px solid rgba(184,154,94,0.4); padding: 4px 14px; border-radius: 2px; margin-bottom: 16px; }
+    .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 500; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .article-meta span { font-size: 13px; color: rgba(255,255,255,0.65); }
+    .article-meta .dot { width: 3px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 50%; }
+
+    .article-layout { max-width: 1200px; margin: 0 auto; padding: 64px 32px; display: grid; grid-template-columns: 1fr 320px; gap: 64px; }
+
+    .article-body { max-width: 720px; }
+    .lead { font-size: 18px; font-weight: 300; color: var(--text); line-height: 1.8; margin-bottom: 36px; border-left: 3px solid var(--gold); padding-left: 24px; }
+    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: var(--navy); margin: 40px 0 16px; line-height: 1.3; }
+    .article-body h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; color: var(--navy); margin: 28px 0 12px; }
+    .article-body p { font-size: 16px; color: var(--text); line-height: 1.9; margin-bottom: 20px; }
+    .article-body ul { margin: 16px 0 20px 20px; }
+    .article-body li { font-size: 16px; color: var(--text); line-height: 1.8; margin-bottom: 8px; }
+    .article-body li::marker { color: var(--gold); }
+
+    .highlight-box { background: var(--navy); color: #fff; padding: 28px 32px; border-radius: 4px; margin: 36px 0; }
+    .highlight-box p { font-size: 17px; font-style: italic; line-height: 1.75; color: rgba(255,255,255,0.9); margin: 0; }
+    .highlight-box cite { display: block; font-size: 12px; font-style: normal; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 12px; }
+
+    .data-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 36px 0; }
+    .data-card { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 20px; text-align: center; }
+    .data-card .number { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--navy); font-weight: 500; display: block; }
+    .data-card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; display: block; }
+    .data-card .sub { font-size: 11px; color: var(--gold); margin-top: 4px; display: block; }
+
+    .article-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 16px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--navy); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; }
+    .back-link:hover { color: var(--gold); }
+    .share-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .sidebar { display: flex; flex-direction: column; gap: 32px; position: sticky; top: 100px; align-self: start; }
+    .sidebar-block { background: #fff; border-radius: 4px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+    .sidebar-title { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .cta-block { background: var(--navy); color: #fff; text-align: center; padding: 32px 24px; border-radius: 4px; }
+    .cta-block h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 400; margin-bottom: 10px; }
+    .cta-block p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; line-height: 1.65; }
+    .cta-btn { display: block; background: var(--gold); color: #fff; text-decoration: none; padding: 12px 0; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; }
+    .cta-btn:hover { background: var(--gold-lt); }
+
+    .related-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .related-item a { display: flex; gap: 14px; text-decoration: none; }
+    .related-thumb { width: 64px; height: 52px; border-radius: 2px; overflow: hidden; flex-shrink: 0; }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-info h4 { font-size: 13px; color: var(--navy); line-height: 1.35; margin-bottom: 4px; font-weight: 500; }
+    .related-info span { font-size: 11.5px; color: var(--muted); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 40px 32px 24px; margin-top: 0; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 12px; flex-wrap: wrap; gap: 12px; }
+    .creci { color: var(--gold); font-weight: 500; }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; padding: 40px 20px; }
+      .sidebar { position: static; }
+      .data-cards { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+    }
+    @media (max-width: 600px) {
+      .article-hero { height: 320px; }
+      .hero-content { padding: 24px; }
+      .data-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="https://df4imoveis.com.br" class="logo">
+      <img src="https://cdn2.uso.com.br/sites/logos/37845_topofixo.png" alt="DF4 Imóveis"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="logo-text" style="display:none;"><span>DF4 Imóveis</span><span>Brasília · DF</span></div>
+    </a>
+    <nav>
+      <a href="https://df4imoveis.com.br/imoveis">Imóveis</a>
+      <a href="https://df4imoveis.com.br/servicos">Serviços</a>
+      <a href="https://df4imoveis.com.br/empresa">Sobre Nós</a>
+      <a href="index.html">Blog</a>
+      <a href="https://api.whatsapp.com/send?phone=5561991958052" class="nav-cta">Fale Conosco</a>
+    </nav>
+  </div>
+</header>
+
+<div class="article-hero">
+  <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=85" alt="Mercado imobiliário Brasília 2026" />
+  <div class="hero-content">
+    <span class="article-cat">Mercado</span>
+    <h1>Mercado imobiliário de Brasília em 2026: onde estão as maiores oportunidades</h1>
+    <div class="article-meta">
+      <span>DF4 Imóveis</span>
+      <span class="dot"></span>
+      <span>10 de junho de 2026</span>
+      <span class="dot"></span>
+      <span>8 min de leitura</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+
+    <p class="lead">O mercado imobiliário do Distrito Federal atravessa um ciclo favorável ao comprador e ao investidor. Com a taxa Selic em trajetória de queda e a demanda por imóveis residenciais aquecida em diversas regiões, 2026 apresenta janelas de oportunidade que raramente se repetem.</p>
+
+    <div class="data-cards">
+      <div class="data-card">
+        <span class="number">+11%</span>
+        <span class="label">Valorização média</span>
+        <span class="sub">Águas Claras · 12 meses</span>
+      </div>
+      <div class="data-card">
+        <span class="number">+8%</span>
+        <span class="label">Valorização média</span>
+        <span class="sub">Vicente Pires · 12 meses</span>
+      </div>
+      <div class="data-card">
+        <span class="number">+14%</span>
+        <span class="label">Valorização média</span>
+        <span class="sub">Setor Noroeste · 12 meses</span>
+      </div>
+    </div>
+
+    <h2>Por que o DF se destaca no cenário nacional</h2>
+    <p>Brasília tem características estruturais únicas no Brasil: renda per capita entre as mais altas do país, funcionalismo público estável, demanda constante por imóveis de médio e alto padrão, e oferta de terrenos limitada em regiões consolidadas. Esses fatores criam um piso de valorização que amortece as quedas em períodos de retração e acelera a alta quando o crédito se expande.</p>
+    <p>Em 2026, a combinação de Selic mais baixa — o que reduz o custo do financiamento — com a escassez de novos lançamentos em bairros maduros criou uma pressão de demanda que já se reflete nos preços. Imóveis de 2 e 3 quartos em Águas Claras, por exemplo, apresentam tempo médio de venda inferior a 30 dias em determinados segmentos.</p>
+
+    <div class="highlight-box">
+      <p>"O comprador que espera o momento perfeito geralmente perde o momento real. Em mercados com fundamentos sólidos como o DF, a janela de melhor custo-benefício fecha antes que a maioria perceba."</p>
+      <cite>— Equipe de análise, DF4 Imóveis</cite>
+    </div>
+
+    <h2>Os bairros que lideram a valorização</h2>
+
+    <h3>Águas Claras</h3>
+    <p>Consolidada como o bairro mais populoso e dinâmico do DF, Águas Claras registra valorização de dois dígitos pelo segundo ano consecutivo. A combinação de metrô, comércio completo e perfil jovem da população sustenta a demanda — tanto de compradores de primeiro imóvel quanto de investidores de aluguel. Apartamentos de 1 quarto têm apresentado retorno de locação entre 0,5% e 0,7% ao mês.</p>
+
+    <h3>Vicente Pires</h3>
+    <p>O setor habitacional de Vicente Pires atende a uma demanda diferente: famílias que buscam casas com área de terreno, privacidade e acesso rápido ao Plano Piloto. Com a saturação de lotes disponíveis, a tendência é de valorização acelerada nos próximos 24 meses. Casas de 3 e 4 quartos entre R$ 800 mil e R$ 1,4 milhão concentram o maior volume de transações.</p>
+
+    <h3>Setor Noroeste</h3>
+    <p>O Noroeste segue como o endereço mais valorizado per metro quadrado no DF. Mesmo com ticket elevado — apartamentos de 3 quartos facilmente ultrapassam R$ 1,8 milhão — a liquidez é alta, impulsionada pelo perfil do comprador: profissional liberal de alta renda, famílias de servidores de carreira e investidores de longo prazo.</p>
+
+    <h2>O que esperar no segundo semestre</h2>
+    <p>Os indicadores apontam para continuidade do ciclo de alta, mas com seletividade crescente. Imóveis bem localizados, com boa planta e próximos a transporte público manterão ritmo de valorização acima da inflação. Já produtos com problemas de localização ou alto custo condominial podem enfrentar mais resistência de compradores.</p>
+
+    <ul>
+      <li>Crédito imobiliário tende a ficar mais acessível com a queda da Selic</li>
+      <li>Demanda por imóveis compactos (1 e 2 quartos) segue acima da oferta em Águas Claras e Taguatinga</li>
+      <li>Casas em condomínio em Vicente Pires e Arniqueira apresentam melhor relação valorização × custo</li>
+      <li>Imóveis para renda continuam sendo alternativa eficiente frente à renda fixa</li>
+    </ul>
+
+    <h2>Como aproveitar esse momento</h2>
+    <p>Para quem está comprando o primeiro imóvel, este é um momento adequado para avançar, especialmente se o financiamento já está pré-aprovado. A tendência de queda da Selic pode ser lenta e não linear — esperar pela taxa ideal pode significar pagar mais pelo imóvel.</p>
+    <p>Para investidores, a recomendação é avaliar a relação entre preço de compra e potencial de aluguel antes de decidir. Regiões com baixa vacância e alta rotatividade — como proximidades de universidades e centros comerciais em Águas Claras — oferecem o melhor equilíbrio entre rentabilidade e liquidez.</p>
+    <p>Em qualquer caso, contar com uma equipe especializada que conhece as especificidades de cada bairro do DF faz diferença na qualidade da decisão e na velocidade da negociação.</p>
+
+    <div class="article-footer">
+      <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Voltar ao Blog
+      </a>
+      <span class="share-label">DF4 Imóveis · CRECI 25.347</span>
+    </div>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="cta-block">
+      <h3>Quer aproveitar este momento?</h3>
+      <p>Nossa equipe está pronta para te mostrar as melhores oportunidades do DF agora.</p>
+      <a href="https://api.whatsapp.com/send?phone=5561991958052" class="cta-btn">Falar com um corretor</a>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Leia também</div>
+      <ul class="related-list">
+        <li class="related-item">
+          <a href="artigo-aguas-claras.html">
+            <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200&q=70" alt="" /></div>
+            <div class="related-info"><h4>Águas Claras: o bairro mais procurado do DF</h4><span>5 Jun 2026</span></div>
+          </a>
+        </li>
+        <li class="related-item">
+          <a href="artigo-financiamento-df-2026.html">
+            <div class="related-thumb"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&q=70" alt="" /></div>
+            <div class="related-info"><h4>Como financiar seu imóvel no DF em 2026</h4><span>1 Jun 2026</span></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <span>© 2026 DF4 Imóveis. Todos os direitos reservados.</span>
+    <span class="creci">CRECI 25.347</span>
+    <a href="index.html" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:12px;">← Voltar ao Blog</a>
+  </div>
+</footer>
+</body>
+</html>
